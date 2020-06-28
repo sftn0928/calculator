@@ -16,14 +16,14 @@
   <div class="calculator-wrapper">
     <div class="card bg-dark">
       <div class="card-body">
-        <input id="currentNum" class="card-title calculator-display" name="ano" value="0">
+        <input id="currentNum" class="card-title calculator-display" value="0">
         <div class="btn-wrapper">
           <div class="btn-toolbar" role="toolbar">
             <div class="btn-group" role="group" aria-label="First group">
               <button type="button" class="btn btn-primary" onclick="clickSymbol('AC')" >AC</button>
-              <button type="button" class="btn btn-primary" onclick="clickSymbol('+/-')" >+/-</button>
+              <button type="button" class="btn btn-primary" onclick="clickSymbol('C')" >C</button>
               <button type="button" class="btn btn-primary" onclick="clickSymbol('%')">%</button>
-              <button type="button" class="btn btn-warning" onclick="clickSymbol('/')">�</button>
+              <button type="button" class="btn btn-warning" onclick="clickSymbol('/')">÷</button>
             </div>
           </div>
           <div class="btn-toolbar" role="toolbar">
@@ -31,7 +31,7 @@
               <button type="button" class="btn btn-secondary" onClick="clickNumber(7)">7</button>
               <button type="button" class="btn btn-secondary" onClick="clickNumber(8)">8</button>
               <button type="button" class="btn btn-secondary" onClick="clickNumber(9)">9</button>
-              <button type="button" class="btn btn-warning" onclick="clickSymbol('*')">�</button>
+              <button type="button" class="btn btn-warning" onclick="clickSymbol('*')">×</button>
             </div>
           </div>
           <div class="btn-toolbar" role="toolbar">
@@ -39,7 +39,7 @@
               <button type="button" class="btn btn-secondary" onClick="clickNumber(4)">4</button>
               <button type="button" class="btn btn-secondary" onClick="clickNumber(5)">5</button>
               <button type="button" class="btn btn-secondary" onClick="clickNumber(6)">6</button>
-              <button type="button" class="btn btn-warning" onclick="clickSymbol('-')">-</button>
+              <button type="button" class="btn btn-warning" onclick="clickSymbol('-')">ー</button>
             </div>
           </div>
           <div class="btn-toolbar" role="toolbar">
@@ -47,15 +47,15 @@
               <button type="button" class="btn btn-secondary" onClick="clickNumber(1)">1</button>
               <button type="button" class="btn btn-secondary" onClick="clickNumber(2)">2</button>
               <button type="button" class="btn btn-secondary" onClick="clickNumber(3)">3</button>
-              <button type="button" class="btn btn-warning" onclick="clickSymbol('+')" >+</button>
+              <button type="button" class="btn btn-warning" onclick="clickSymbol('+')" >＋</button>
             </div>
           </div>
           <div class="btn-toolbar" role="toolbar">
             <div class="btn-group" role="group" aria-label="Fifth group">
-              <button type="button" class="btn btn-secondary" onClick="clickNumber(0)">0</button>
-              <button type="button" class="btn btn-secondary" onClick="clickNumber(00)">00</button>
-              <button type="button" class="btn btn-secondary">.</button>
-              <button type="button" class="btn btn-warning" onclick="clickSymbol('=')" >=</button>
+              <button type="button" class="btn btn-secondary" onClick="clickNumber('0')">0</button>
+              <button type="button" class="btn btn-secondary" onClick="clickNumber('00')">00</button>
+              <button type="button" class="btn btn-secondary" onclick="clickSymbol('+/-')" >+/-</button>
+              <button type="button" class="btn btn-warning" onclick="clickSymbol('=')" >＝</button>
             </div>
           </div>
         </div>
