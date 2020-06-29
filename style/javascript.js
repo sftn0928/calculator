@@ -7,7 +7,7 @@ clickNumber = (num) => {
   // 現在の値を代入
   var currentNum = document.getElementById("currentNum").value;
   if (currentNum === "0" || currentNum === preNum ||
-    result === parseInt(currentNum)) {
+    result === parseInt(currentNum) && isPoint ) {
     currentNum = num;
   } else {
     if (num === '0') {
@@ -25,7 +25,6 @@ clickSymbol = (sym) => {
     if (sym === "AC") allClear();
     if (sym === "C") Clear();
     if (sym === "+/-") switchPlusMinus();
-    if (sym === ".") createPoint();
     // 以前の値を格納
     preNum = document.getElementById("currentNum").value;
     // 最後に押した記号を格納

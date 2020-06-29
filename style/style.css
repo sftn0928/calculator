@@ -12,7 +12,6 @@
   box-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
-
 .calculator-display {
   width: 320px;
   height: 40px;
@@ -34,22 +33,18 @@
   .card {
     max-width: 205px;
   }
-
   button {
     font-size: 1em;
   }
-   
   .calculator-display {
     width: 160px;
     height: 20px;
     font-size: 1em;
     padding-right: 5px;
   }
-  
   .btn-group {
     font-size: 10px;
   }
-
   .btn {
     height: 39px;
     width: 39px;
