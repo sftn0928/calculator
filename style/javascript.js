@@ -10,9 +10,7 @@ clickNumber = (num) => {
     result === parseInt(currentNum)) {
     currentNum = num;
   } else {
-    if (num === '00') {
-      currentNum *= 100;
-    } else if (num === '0') {
+    if (num === '0') {
       currentNum *= 10;
     } else {
       currentNum += num;
@@ -27,28 +25,28 @@ clickSymbol = (sym) => {
     if (sym === "AC") allClear();
     if (sym === "C") Clear();
     if (sym === "+/-") switchPlusMinus();
+    if (sym === ".") createPoint();
     // 以前の値を格納
     preNum = document.getElementById("currentNum").value;
     // 最後に押した記号を格納
     lastSym = sym;
-    document.getElementById("currentNum").value = preNum;
   } else {
-    var currentNum = document.getElementById("currentNum").value;
+    currentNum = document.getElementById("currentNum").value;
     switch (lastSym) {
       case "+":
-        result = parseInt(preNum) + parseInt(currentNum);
+        result = parseFloat(preNum) + parseFloat(currentNum);
         break;
       case "-":
-        result = parseInt(preNum) - parseInt(currentNum);
+        result = parseFloat(preNum) - parseFloat(currentNum);
         break;
       case "*":
-        result = parseInt(preNum) * parseInt(currentNum);
+        result = parseFloat(preNum) * parseFloat(currentNum);
         break;
       case "/":
-        result = parseInt(preNum) / parseInt(currentNum);
+        result = parseFloat(preNum) / parseFloat(currentNum);
         break;
       case "%":
-        result = parseInt(preNum) % parseInt(currentNum);
+        result = parseFloat(preNum) % parseFloat(currentNum);
         break;
       default:
         break;
@@ -57,6 +55,19 @@ clickSymbol = (sym) => {
     document.getElementById("currentNum").value = result;
   }
 };
+
+// .を押した時のイベント
+clickPoint = () => {
+  let pointNum = document.getElementById("currentNum").value;
+  // 整数判定の正規表現
+  let patten = /^[+,-]?([1-9]\d*|0)$/;
+  let isPoint = patten.test(pointNum)
+  //　現在値が正数の時のみ小数点付与
+  if (isPoint) {
+    pointNum += ".";
+  } 
+  document.getElementById("currentNum").value = pointNum;
+}
 
 // ACを押した時のメソッド
 allClear = () => {
