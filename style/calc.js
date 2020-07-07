@@ -6,8 +6,8 @@ var result = 0;
 const clickNumber = (num) => {
   // 現在の値を代入
   var currentNum = document.getElementById("currentNum").value;
-  if ((currentNum === "0" || currentNum === preNum ||
-      result === parseInt(currentNum)) || Number.isInteger(currentNum)) {
+  if (currentNum === "0" || currentNum === preNum ||
+      result === currentNum || Number.isInteger(currentNum)) {
     currentNum = num;
   } else {
     currentNum += num;
@@ -60,23 +60,25 @@ const clickPoint = () => {
   document.getElementById("currentNum").value = pointNum;
 }
 
-// ACを押した時の関数
+// ACを押した時のメソッド
 const allClear = () => {
-  document.getElementById("currentNum").value = 0;
+  document.getElementById("currentNum").value = "0";
 }
 
-// Cを押した時の関数
+// Cを押した時のメソッド
 const Clear = () => {
   currentNum = document.getElementById("currentNum").value;
-  let divNum = currentNum / 10;
-  if (Math.abs(divNum) > 0) {
-    document.getElementById("currentNum").value = parseInt(divNum) * 10 / 10;
+  let arrayNum = currentNum.split('')　// 文字列を配列に変換
+  if (arrayNum.length > 1) {　　　　　　// 配列の要素が2つ以上の時
+    arrayNum.pop();          　　　　　 // 配列の末尾を削除
+    let clearNum = arrayNum.join("");　//　配列を文字列に変換
+    document.getElementById("currentNum").value = clearNum;
   } else {
-    document.getElementById("currentNum").value = 0;
+    document.getElementById("currentNum").value = "0";
   }
 }
 
-// +/-を押した時の関数
+// +/-を押した時のメソッド
 const switchPlusMinus = () => {
   let absNum = document.getElementById("currentNum").value;
   if (absNum > 0) {
