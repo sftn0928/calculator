@@ -54,7 +54,8 @@ const clickSymbol = (sym) => {
 // .を押した時のイベント
 const clickPoint = () => {
   let pointNum = document.getElementById("currentNum").value;
-  if (!Number.isInteger(pointNum)) {
+  let arrayNum = pointNum.split('').pop();
+  if (Number.isInteger(Number(pointNum)) && arrayNum != ".") {
     pointNum += ".";
   }
   document.getElementById("currentNum").value = pointNum;
