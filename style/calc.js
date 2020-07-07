@@ -1,21 +1,16 @@
 var lastSym = "";
 var preNum = 0;
 var result = 0;
-var isInteger = true;
 
 // 数字を押したときのイベント
 const clickNumber = (num) => {
   // 現在の値を代入
   var currentNum = document.getElementById("currentNum").value;
-  if (currentNum === "0" || currentNum === preNum ||
-    result === parseInt(currentNum) && isInteger ) {
+  if ((currentNum === "0" || currentNum === preNum ||
+      result === parseInt(currentNum)) || Number.isInteger(currentNum)) {
     currentNum = num;
   } else {
-    if (num === '0') {
-      currentNum *= 10;
-    } else {
-      currentNum += num;
-    }
+    currentNum += num;
   }
   document.getElementById("currentNum").value = currentNum;
 };
@@ -34,19 +29,19 @@ const clickSymbol = (sym) => {
     currentNum = document.getElementById("currentNum").value;
     switch (lastSym) {
       case "+":
-        result = parseFloat(preNum) + parseFloat(currentNum);
+        result = Number(preNum) + Number(currentNum);
         break;
       case "-":
-        result = parseFloat(preNum) - parseFloat(currentNum);
+        result = Number(preNum) - Number(currentNum);
         break;
       case "*":
-        result = parseFloat(preNum) * parseFloat(currentNum);
+        result = Number(preNum) * Number(currentNum);
         break;
       case "/":
-        result = parseFloat(preNum) / parseFloat(currentNum);
+        result = Number(preNum) / Number(currentNum);
         break;
       case "%":
-        result = parseFloat(preNum) % parseFloat(currentNum);
+        result = Number(preNum) % Number(currentNum);
         break;
       default:
         break;
@@ -59,13 +54,9 @@ const clickSymbol = (sym) => {
 // .を押した時のイベント
 const clickPoint = () => {
   let pointNum = document.getElementById("currentNum").value;
-  // 整数判定の正規表現
-  let patten = /^[+,-]?([1-9]\d*|0)$/;
-  isInteger = patten.test(pointNum)
-  //　現在値が正数の時のみ小数点付与
-  if (isInteger) {
+  if (!Number.isInteger(pointNum)) {
     pointNum += ".";
-  } 
+  }
   document.getElementById("currentNum").value = pointNum;
 }
 
